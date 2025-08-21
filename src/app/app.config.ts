@@ -10,6 +10,7 @@ import { AuthHttpInterceptor } from '@auth0/auth0-angular';
 // import { SampleInterceptor } from './SampleInterceptor';
 
 
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
