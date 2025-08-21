@@ -1,0 +1,13 @@
+@if(totalItems>0)
+  {
+    <ngb-pagination 
+    #pages
+    [(page)]="currentpage"
+    [collectionSize]="totalItems"
+    [pageSize]="size"
+    [size]="displaySize"
+    (pageChange)="changePage(currentpage)"
+    [boundaryLinks]="false"
+    [maxSize]="maxSize"
+    ></ngb-pagination>
+  }

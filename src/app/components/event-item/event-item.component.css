@@ -1,0 +1,11 @@
+.event-date {
+    color: #2f00b2;
+}
+
+.event-name {
+    color: #454749;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,11 @@
+<!-- <p>event-item works!</p> -->
+
+<div class="card p-2" style="width: 170px;">
+    <span class="fs-5 event-name">{{event?.name }}</span>
+    <span class="fw-bold event-date">{{event?.date | date:'dd.MM.yyyy HH:mm'}}</span>
+    <span class="fw-bold ">{{event?.id }}</span>
+    <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#registerModal"
+        (click)="saveEventId(event?.id)" [disabled]="!event?.isActive">
+        Register
+    </button>
+</div>

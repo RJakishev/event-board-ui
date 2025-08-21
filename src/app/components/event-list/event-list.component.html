@@ -1,0 +1,67 @@
+<div class="row">
+    @if(events.length != 0)    {
+        @for(event of events; track event){
+        <div class="col my-2">
+            <app-event-item [event]="event" (click)="onOpenRegister(event?.id)"></app-event-item>
+        </div>
+        }
+    }
+    @else {
+    <div class="col">
+        <div class="alert alert-primary" role="alert">
+            No events!
+        </div>
+
+    </div>
+    }
+    
+    <div class="modal fade" id="registerModal" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Registration</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    eventIdToDelete='{{eventIdToRegister}}'
+                    <form [formGroup]="registrationForm">
+                        <div class="form-group">
+                            <label for="firstname" class="col-form-label">Firstname:</label>
+                            <input type="text" class="form-control" id="firstname" formControlName="firstname">
+                            <span class="text-danger fs-5 m-1">*</span>
+                            <!-- <app-field-error-display [displayError]="isFieldValid('registeringTax')" 
+                            errorMsg="registeringTax is required" ></app-field-error-display> -->
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname" class="col-form-label">Lastname:</label>
+                            <input class="form-control" id="lastname" formControlName="lastname" />
+                            @if(registrationForm.get('firstName')?.invalid &&
+                            registrationForm.get('firstName')?.touched)
+                            {
+                            <div class="text-danger">
+                                First name is required.
+                            </div>
+                            }
+                        </div>
+                        <div class="form-group">
+                            <label for="personaId" class="col-form-label">Person ID:</label>
+                            <input class="form-control" id="personaId" formControlName="personalId" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="closeModalButton" type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="onRegister()">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+        <app-pagination [currentpage]="page" [size]="size" [totalItems]="totalEventsCount" [maxSize]="10"
+            (pageChanged)="onPageChange($event)"></app-pagination>
+    </div>
+</div>
