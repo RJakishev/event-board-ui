@@ -30,6 +30,9 @@ export class LoginComponent implements OnInit {
 
 
   login() {
+    this.email = this.loginForm.value.email;
+    this.password = this.loginForm.value.password;
+    
     this.loginService.login(this.email, this.password).subscribe({
       next: r => {
         this.loginService.setToken(r.token)
