@@ -11,23 +11,13 @@ import { Event } from '../models/event';
 export class EventService {
   private apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
-
-  // getEvents(
-  //     page: number, 
-  //     size: number,
-  //     // sort?: any
-  //   ): Observable<any> {
-  //   return this.http.get(this.apiUrl + '/events');
-  // }
+  constructor(private http: HttpClient) {
+  }
 
   getEvents(
     page: number,
     size: number
   ): Observable<any> {
-    console.log('p=', page);
-    console.log('s=', size);
-
     const params = new HttpParams()
       .set('page', page)
       .set('size', size);
@@ -35,7 +25,6 @@ export class EventService {
   }
 
   register(eventId: number, registration: Registration): Observable<any> {
-    // console.log(registration);
     return this.http.post(`${this.apiUrl}/events/${eventId}/register`, registration);
   }
 

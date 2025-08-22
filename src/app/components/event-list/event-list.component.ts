@@ -29,7 +29,6 @@ export class EventList implements OnInit {
   ) {
   }
 
-
   ngOnInit(): void {
     this.fetchEvents();
 
@@ -41,8 +40,6 @@ export class EventList implements OnInit {
   }
 
   fetchEvents() {
-    console.log('page=', this.page);
-
     this.eventService.getEvents(this.page,
       Number.isNaN(this.size) ? 1 : this.size,
     )
@@ -70,12 +67,11 @@ export class EventList implements OnInit {
       if (this.eventIdToRegister) {
         this.eventService.register(this.eventIdToRegister, this.registration).subscribe({
           next: () => {
-            console.log('registered!');
             this.registrationForm.reset();
             this.closeModal();
           },
           error(error) {
-            console.log(error);
+            console.error(error);
           }
         });
       }

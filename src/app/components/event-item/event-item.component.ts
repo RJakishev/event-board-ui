@@ -1,4 +1,4 @@
-import { Component, Input, Output} from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Event } from '../../models/event';
 import { CommonModule } from '@angular/common';
 
@@ -10,10 +10,10 @@ import { CommonModule } from '@angular/common';
 })
 export class EventItem {
   @Input() event?: Event;
-  @Input() eventIdToRegister!: number; 
+  @Input() eventIdToRegister!: number;
 
   saveEventId(eventId: any): void {
     this.eventIdToRegister = eventId;
-    console.log(eventId);    
+    console.log(eventId);
   }
 }

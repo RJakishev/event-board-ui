@@ -29,10 +29,6 @@ export class AdminComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // console.log(this.eventForm.value.eventName);
-    // console.log(this.eventForm.value.eventDate);
-    // console.log(this.eventForm.value.eventMaxPeople);
-
     this.event.name = this.eventForm.value.eventName;
     this.event.date = this.eventForm.value.eventDate;
     this.event.maxPeople = this.eventForm.value.eventMaxPeople;
@@ -45,9 +41,7 @@ export class AdminComponent implements OnInit {
     this.eventService.createEvent(event).subscribe({
       next: () => {
         this.eventForm.reset();
-        // this.closeModal();
-        
-    this.router.navigate(['/']);
+        this.router.navigate(['/']);
       },
       error(error) {
         console.log(error);
