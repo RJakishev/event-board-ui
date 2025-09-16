@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule, Input, numberAttribute } from '@angular/core';
+import { Component, OnInit, Input, numberAttribute } from '@angular/core';
 import { EventItem } from "../event-item/event-item.component";
 import { EventService } from '../../services/event.service';
 import { Event } from '../../models/event';

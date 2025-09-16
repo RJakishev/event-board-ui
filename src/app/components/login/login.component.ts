@@ -20,14 +20,12 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) { }
 
-
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: '',
       password: ''
     });
   }
-
 
   login() {
     this.email = this.loginForm.value.email;
