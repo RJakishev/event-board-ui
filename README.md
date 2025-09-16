@@ -1,59 +1,31 @@
-# EventBoardUi
+Proovitöö lähteülesanne
+Luua süsteem, mis võimaldab luua sündmuseid ja kasutajatel registreeruda sündmustele. Rakenduses on
+kaks rolli, kuid autentida peab saama vaid admin kasutajaga.
+Üldised nõuded
+Süsteemis on kahte tüüpi kasutajaid: admin ja tavakasutaja.
+ Lehel peab olema üleval riba peal autentimise nupp - selleks, et admin rollis kasutaja saaks sisse logida.
+ Lehel peab olema nimekiri sündmustest - see tekib siis kui admin on lisanud sündmuseid. Kui sündmuseid ei
+ole, siis peaks olema vastav teade.
+ Funktsionaalsed nõuded, nt väljade valideerimine või veateadete kuvamine on vaba valik.
+Admin kasutaja funktsionaalsused
+ Admin kasutaja saab sisse logida eposti ja parooliga.
+o Admin kasutaja epost ja parool peavad olema rakenduse konfiguratsioonis (et admin kasutajat saaks
+vajadusel vahetada)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.0.
+ Admin kasutaja saab lisada uue sündmuse. Sündmusel on nimetus, aeg ja maksimaalne rahvaarv
+ Admin ei pea saama kustutada sündmust
+Tavakasutaja funktsionaalsused
+ Tavakasutaja ei saa sisse logida
+ Lehele liikudes näeb tavakasutaja adminni poolt loodud sündmuste nimekirja
+ Saab valida nimekirjast sündmuse ja registreeruda
+o Üks kasutaja võib registreeruda mitmele sündmusele
+ Peole registreerimisel peab sisestama eesnime, perenime ja isikukoodi
+ Tavakasutaja ei pea saama sündmusele registreerumist tühistada
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Proovitöös kasutatavad tehnoloogiad
+ Backend teenus – Java
+ Frontend - React, Angular või Vue
+Frontend kujundus ei ole tähtis. Võib olla vabalt valitud UI raamistik või kasvõi isetehtud css fail.
+Andmete hoiustamine - vabalt valitud andmebaas (PostgreSQL, MSSQL, Oracle, H2, SQLite). Kui
+andmebaasi üles seadmine tundub liiga ajakulukas, siis andmeid võib salvestada ka failidena. Näiteks
+kuhugi temp kausta salvestada syndmused.json ja osalejad.json vms.
